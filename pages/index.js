@@ -6,7 +6,7 @@ import { StyledTimeline } from "../src/components/timeline";
 
 function HomePage () {
     const estilosDaHomePage = { 
-        // backgroundColor: "red"
+        backgroundColor: "black"
     };
     
     console.log(config.playlists);
