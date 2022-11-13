@@ -130,5 +130,34 @@
               "thumb": "https://img.youtube.com/vi/0JWMVc1CqpA/hqdefault.jpg"
             }
           ]
+        },
+    "favorites": {
+          "Favoritos": [
+            {
+              "title": "@peas",
+              "url": "https://www.youtube.com/watch?v=QsqatJxAUtk",
+              "thumb": "https://avatars.githubusercontent.com/u/71636?v=4"
+            },
+            {
+              "title": "@omariosuto",
+              "url": "https://www.youtube.com/c/DevSoutinho",
+              "thumb": "https://avatars.githubusercontent.com/u/13791385?v=4"
+            },
+            {
+              "title": "@ruvolpe",
+              "url": "https://github.com/ruvolpe",
+              "thumb": "https://avatars.githubusercontent.com/u/60947134?v=4"
+            },
+            {
+              "title": "@navegantes",
+              "url": "https://github.com/navegantes",
+              "thumb": "https://avatars.githubusercontent.com/u/17339148?v=4"
+            },
+            {
+              "title": "@braianpereira",
+              "url": "https://github.com/braianpereira",
+              "thumb": "https://avatars.githubusercontent.com/u/40808708?v=4"
+            }
+          ]
         }
       }

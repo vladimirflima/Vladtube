@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
 import Menu from "../src/components/Menu";
 import { StyledTimeline } from "../src/components/Timeline";
+import { StyledFavorites } from "../src/components/Favorite";
 
 function HomePage () {
     const estilosDaHomePage = { 
@@ -13,13 +14,14 @@ function HomePage () {
 
     return (
         <>
-         <CSSReset />
-           <div style={estilosDaHomePage}>
+            <CSSReset />
+            <div style={estilosDaHomePage}>       
             <Menu />
             <Header />
             <Timeline playlists={config.playlists}>
                 Conteudo
             </Timeline>
+            <Favorites favorites = {config.favorites}/>
           </div>
         </>
     );
@@ -27,22 +29,21 @@ function HomePage () {
 
 export default HomePage
 
-// function Menu() {
-//    return (
-//        <div>
-//            Menu
-//       </div>
-//    )
-// }
+const StyledBanner = styled.div`
+ height: 230px;
+ background-image: url(https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+ background-position: center center;
+
+`;
 
 const StyledHeader = styled.div`
-     img {
+    img {
         width: 80px;
         height: 80px;
         border-radius: 50%;
     }
     .user-info {
-        margin-top: 50px;
+        margin-top: 0px;
         display: flex;
         align-items: center;
         width: 100%;
@@ -53,8 +54,7 @@ const StyledHeader = styled.div`
 function Header() {
     return (
         <StyledHeader>
-            {/* <img src="banner"/> */}
-            
+            <StyledBanner bg={config.StyledBanner} />           
             <section className="user-info">
                <img src={`https://github.com/${config.github}.png`} />
                <div>
@@ -71,10 +71,8 @@ function Header() {
 }
 
 function Timeline(propriedades) {
-    // console.log("Dentro do componente", propriedades.playlists);
     const playlistNames = Object.keys(propriedades.playlists);
-    // Statement
-    // Retorno por expressão
+
     return (
         <StyledTimeline>
             {playlistNames.map((playlistName) => {
@@ -100,5 +98,31 @@ function Timeline(propriedades) {
                 )
             })}
         </StyledTimeline>
+    )
+}
+
+function Favorites(propriedades) {
+    const favoriteNames = Object.keys(propriedades.favorites);
+    return (
+        <StyledFavorites>
+            {favoriteNames.map((favoriteName) => {
+                const videos = propriedades.favorites[favoriteName];
+                return (
+                    <section>
+                        <h2>{favoriteName}</h2>
+                        <div>
+                            {videos.map((video) => {
+                                return (
+                                      <a href={video.url}>
+                                        <img src={video.thumb} />
+                                        <span>{video.title}</span>
+                                      </a>
+                                )
+                            })}
+                        </div>
+                    </section>
+                )
+            })}
+        </StyledFavorites>
     )
 }
