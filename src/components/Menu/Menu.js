@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import Search from "./components/Search";
 
 const StyledMenu = styled.header`
-  display: flex;
+  display : flex;
   flex-direction: row;
   height: 56px;
   justify-content: space-between;
@@ -24,12 +25,13 @@ const StyledMenu = styled.header`
   }
 `;
 
-export default function Menu() {
+export default function Menu({valorDoFiltro, setValorDoFiltro}) {
   return (
     <StyledMenu>
       <div>
         <Logo />
       </div>
+      <Search valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro}/>
     </StyledMenu>
   );
 }

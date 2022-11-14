@@ -1,24 +1,24 @@
 import config from "../config.json";
 import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
-import Menu from "../src/components/Menu";
+import Menu from "../src/components/Menu/Menu";
 import { StyledTimeline } from "../src/components/Timeline";
 import { StyledFavorites } from "../src/components/Favorite";
+import React from "react";
 
 function HomePage () {
     const estilosDaHomePage = { 
         // backgroundColor: "red"
     };
-    
-    console.log(config.playlists);
-
+    const [valorDoFiltro, setValorDoFiltro] = React.useState("");
+    // console.log(config.playlists);
     return (
         <>
             <CSSReset />
             <div style={estilosDaHomePage}>       
-            <Menu />
+            <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro}/>
             <Header />
-            <Timeline playlists={config.playlists}>
+            <Timeline searchValue={valorDoFiltro} playlists={config.playlists}>
                 Conteudo
             </Timeline>
             <Favorites favorites = {config.favorites}/>
@@ -70,22 +70,25 @@ function Header() {
     )
 }
 
-function Timeline(propriedades) {
+function Timeline({searchValue, ...propriedades}) {
     const playlistNames = Object.keys(propriedades.playlists);
-
     return (
         <StyledTimeline>
             {playlistNames.map((playlistName) => {
                 const videos = propriedades.playlists[playlistName];
-                console.log(playlistName);
-                console.log(videos);
+               // console.log(playlistName);
+               // console.log(videos)
                 return (
-                    <section>
+                    <section key={playlistName}>
                         <h2>{playlistName}</h2>
                         <div>
-                            {videos.map((video) => {
+                            {videos.filter((video) => {
+                                const titleNormalized = video.title.toLowerCase();
+                                const searchValurNormalized = searchValue.toLowerCase();
+                                return titleNormalized.includes(searchValurNormalized)
+                            }).map((video) => {
                                 return (
-                                    <a href={video.url}>
+                                    <a key={video.url} href={video.url}>
                                         <img src={video.thumb} />
                                         <span>
                                             {video.title}
@@ -108,12 +111,12 @@ function Favorites(propriedades) {
             {favoriteNames.map((favoriteName) => {
                 const videos = propriedades.favorites[favoriteName];
                 return (
-                    <section>
+                    <section key={favoriteName}>
                         <h2>{favoriteName}</h2>
                         <div>
                             {videos.map((video) => {
                                 return (
-                                      <a href={video.url}>
+                                <a key={video.url} href={video.url}>
                                         <img src={video.thumb} />
                                         <span>{video.title}</span>
                                       </a>
