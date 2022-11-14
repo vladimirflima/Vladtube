@@ -4,7 +4,7 @@ export const StyledTimeline = styled.div`
   flex: 1;
   //width: 100%;
   padding: 16px;
-  overflow: hidden;
+  overflow: auto;
   h2 {
     font-size: 16px;
     margin-bottom: 16px;
@@ -15,7 +15,7 @@ export const StyledTimeline = styled.div`
     font-weight: 500;
     object-fit: cover;
     width: 100%;
-    max-width: 210px;
+    //max-width: 210px;
     height: auto;
   }
   section {
