@@ -1,10 +1,14 @@
-# Vladtube
+# Aluratube
 
-Este repositório contém uma aplicação React que exibe listas de vídeos organizados em playlists e favoritos. A aplicação permite filtrar os vídeos com base em um termo de busca fornecido pelo usuário.
+Este é um projeto de uma aplicação web construída com **Next.js**, **React** e **Styled Components**.  
+A proposta é exibir playlists de vídeos organizadas e favoritos, com suporte a **filtro de busca** e **tema claro/escuro**.
+
 
 ## Visão Geral
 
 A aplicação consiste em vários componentes React, estilizados com `styled-components`, e utiliza um arquivo de configuração JSON para carregar dados do usuário e vídeos.
+
+Este projeto foi desenvolvido utilizando **Next.js** como framework principal de React para criação de páginas e rotas, **React.js** para construção dos componentes funcionais e gerenciamento de estado, **Styled Components** para a estilização com CSS-in-JS e **JavaScript ES6+** como linguagem base. O projeto também utiliza o conceito de **Context API** para alternar entre os temas claro e escuro, além do uso de **props e estados** para manipulação dinâmica dos dados exibidos.
 
 ## Estrutura do Projeto
 
@@ -32,7 +36,7 @@ A aplicação consiste em vários componentes React, estilizados com `styled-com
 
 1. Inicie a aplicação:
     ```bash
-    npm star
+    npm start
 
 2. Abra seu navegador e vagegue para:
     ```bash
